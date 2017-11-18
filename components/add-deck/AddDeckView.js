@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 
 class AddDeckView extends React.Component {
 
@@ -7,7 +7,11 @@ class AddDeckView extends React.Component {
         
         return (
             <View>
-                
+                <Text>What is the title of your new deck?</Text>
+                <TextInput/>
+                <TouchableOpacity>
+                    <Text>Submit</Text>
+                </TouchableOpacity>
             </View>
         )
     }

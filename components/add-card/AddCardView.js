@@ -1,12 +1,16 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 
 class AddCardView extends React.Component {
 
     render() {
         return (
             <View>
-                <Text>Add view</Text>
+                <TextInput/>
+                <TextInput/>
+                <TouchableOpacity>
+                    <Text>Submit</Text>
+                </TouchableOpacity>
             </View>
         )
     }
