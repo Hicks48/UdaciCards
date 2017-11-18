@@ -1,22 +1,38 @@
-import { StackNavigator } from 'react-navigation'
+import { StackNavigator, TabNavigator } from 'react-navigation'
 
 import DecksView from '../decksview/DecksView'
+import AddDeckView from '../add-deck/AddDeckView'
 import DeckView from '../deckview/DeckView'
 import AddCardView from '../add-card/AddCardView'
 import QuestionareView from '../questionare/QuestionareView'
 
-const UdaciCardsNavigator = StackNavigator({
+const Tabs = TabNavigator({
     DecksView: {
-        'screen': DecksView
+        screen: DecksView,
+        navigationOptions: {
+            tabBarLabel: 'Decks'
+        }
+    },
+    AddDeckView: {
+        screen: AddDeckView,
+        navigationOptions: {
+            tabBarLabel: 'Add Deck'
+        }
+    }
+})
+
+const UdaciCardsNavigator = StackNavigator({
+    Home: {
+        screen: Tabs
     },
     DeckView: {
-        'screen': DeckView
+        screen: DeckView
     },
     AddCardView: {
-        'screen': AddCardView
+        screen: AddCardView
     },
     QuestionareView: {
-        'screen': QuestionareView
+        screen: QuestionareView
     }
 })
 
