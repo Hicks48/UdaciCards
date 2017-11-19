@@ -3,48 +3,36 @@ import { View, StyleSheet } from 'react-native'
 
 import DeckList from './DeckList'
 
+import * as API from '../../utils/api'
+
 class DecksView extends React.Component {
  
+    constructor(props) {
+      super(props)
+
+      this.state = {
+        decks: []
+      }
+    }
+
+    componentDidMount() {
+      API.getDecks()
+        .then((decks) => Object.keys(decks).map((key) => (decks[key])))
+        .then((decks) => this.setState({ decks }))
+    }
+
     render() {
       const { navigation } = this.props
+      const { decks } = this.state
 
       return (
           <View style={styles.container}>
             <DeckList 
-              decks={this.getDecks()} 
+              decks={decks}
               onItemPress={() => navigation.navigate('DeckView')}
             />
           </View>
       )
-    }
-
-    getDecks = () => {
-        let data = {
-            React: {
-              title: 'React',
-              questions: [
-                {
-                  question: 'What is React?',
-                  answer: 'A library for managing user interfaces'
-                },
-                {
-                  question: 'Where do you make Ajax requests in React?',
-                  answer: 'The componentDidMount lifecycle event'
-                }
-              ]
-            },
-            JavaScript: {
-              title: 'JavaScript',
-              questions: [
-                {
-                  question: 'What is a closure?',
-                  answer: 'The combination of a function and the lexical environment within which that function was declared.'
-                }
-              ]
-            }
-          }
-
-        return Object.keys(data).map((key) => (data[key]))
     }
 }
 
