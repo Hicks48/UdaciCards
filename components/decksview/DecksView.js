@@ -15,7 +15,7 @@ class DecksView extends React.Component {
       }
     }
 
-    componentDidMount() {
+    componentWillMount() {
       API.getDecks()
         .then((decks) => Object.keys(decks).map((key) => (decks[key])))
         .then((decks) => this.setState({ decks }))
@@ -29,7 +29,7 @@ class DecksView extends React.Component {
           <View style={styles.container}>
             <DeckList 
               decks={decks}
-              onItemPress={() => navigation.navigate('DeckView')}
+              onItemPress={(deckTitle) => navigation.navigate('DeckView', { deckTitle })}
             />
           </View>
       )

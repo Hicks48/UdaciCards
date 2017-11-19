@@ -4,16 +4,28 @@ import { View, Text, StyleSheet } from 'react-native'
 import QuestionView from './QuestionView'
 import CompletedView from './CompletedView'
 
+import * as API from '../../utils/api'
+
 class QuestionareView extends React.Component {
 
     constructor(props) {
         super(props)
 
         this.state = {
+            deck: { title: '', questions: [] },
             questionsCorrect: 0,
             questionsAnswered: 0,
             currentQuestion: 0
         }
+    }
+
+    componentWillMount() {
+        const { deckTitle } = this.props.navigation.state.params
+
+        API.getDeck(deckTitle).then((deck) => this.setState((state) => ({
+            ...state,
+            deck
+        })))
     }
 
     onAnswerCorrect = () => {
@@ -36,26 +48,8 @@ class QuestionareView extends React.Component {
         ))
     }
 
-    getData = () => {
-        return {
-            title: 'React',
-            questions: [
-              {
-                question: 'What is React?',
-                answer: 'A library for managing user interfaces'
-              },
-              {
-                question: 'Where do you make Ajax requests in React?',
-                answer: 'The componentDidMount lifecycle event'
-              }
-            ]
-          }
-    }
-
     render() {
-        const deck = this.getData()
-        const { questionsAnswered, questionsCorrect, currentQuestion } = this.state
-
+        const { deck, questionsAnswered, questionsCorrect, currentQuestion } = this.state
         const questions = deck.questions
 
         return (

@@ -8,7 +8,7 @@ class DeckListItem extends React.Component {
 
         return (
             <View style={styles.listItem}>
-                <TouchableOpacity onPress={onItemPress}>
+                <TouchableOpacity onPress={() => onItemPress(title)}>
                     <Text style={styles.title}>{title}</Text>
                     <Text>{`${questions.length} cards`}</Text>
                 </TouchableOpacity>

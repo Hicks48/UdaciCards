@@ -16,7 +16,7 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     API.createDeckStorage().then((decks) => this.setState({ isStorageReady: true }))
   }
 

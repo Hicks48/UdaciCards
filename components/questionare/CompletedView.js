@@ -9,7 +9,11 @@ class CompletedView extends React.Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.message}>
-                    {`You got ${questionsCorrect/questionsTotal*100}% of questions correct.`}
+                    {
+                        questionsTotal === 0 ?
+                        'There are no questions in this deck.' :
+                        `You got ${questionsCorrect/questionsTotal*100}% of questions correct.`
+                    }
                 </Text>
             </View>
         )
