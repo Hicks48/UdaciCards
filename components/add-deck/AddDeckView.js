@@ -1,5 +1,6 @@
 import React from 'react'
 import { KeyboardAvoidingView, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import { NavigationActions } from 'react-navigation'
 
 import FieldStyles from '../styles/FieldStyles'
 import ButtonStyles from '../styles/ButtonStyles'
@@ -42,7 +43,15 @@ class AddDeckView extends React.Component {
                 title: deckName,
                 questions: []
             }
-        }).then(() => navigation.navigate('Home'))
+        }).then(() => {
+            navigation.dispatch(NavigationActions.reset({
+                index: 1,
+                actions: [
+                    NavigationActions.navigate({ routeName: 'Home'}),
+                    NavigationActions.navigate({ routeName: 'DeckView', params: { deckTitle: deckName }})
+                ]
+            }))
+        })
     }
 }
 
