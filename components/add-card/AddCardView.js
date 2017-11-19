@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import { NavigationActions } from 'react-navigation'
 
 import FieldStyles from '../styles/FieldStyles' 
 import ButtonStyles from '../styles/ButtonStyles'
@@ -17,13 +18,28 @@ class AddCardView extends React.Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            question: '',
+            answer: ''
+        })
+    }
+
     onSubmit = () => {
         const { navigation } = this.props
         const { question, answer } = this.state
         const { deckTitle } = navigation.state.params
 
         API.addCardToDeck(deckTitle, question, answer)
-            .then(() => navigation.navigate('DeckView', { deckTitle }))
+            .then(() => {
+                navigation.dispatch(NavigationActions.reset({
+                    index: 1,
+                    actions: [
+                        NavigationActions.navigate({ routeName: 'Home'}),
+                        NavigationActions.navigate({ routeName: 'DeckView', params: { deckTitle }})
+                    ]
+                }))
+            })
     }
 
     render() {

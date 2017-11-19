@@ -15,10 +15,18 @@ class DecksView extends React.Component {
       }
     }
 
-    componentWillMount() {
+    getData = () => {
       API.getDecks()
         .then((decks) => Object.keys(decks).map((key) => (decks[key])))
         .then((decks) => this.setState({ decks }))
+    }
+
+    componentWillMount() {
+      this.getData()
+    }
+
+    componentWillReceiveProps(nextProps) {
+      this.getData()
     }
 
     render() {

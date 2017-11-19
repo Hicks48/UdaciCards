@@ -18,13 +18,21 @@ class DeckView extends React.Component {
         }
     }
 
-    componentWillMount() {
+    getData = () => {
         const { deckTitle } = this.props.navigation.state.params
-
+        
         API.getDeck(deckTitle).then((deck) => this.setState({
             title: deck.title,
             questions: deck.questions
         }))
+    }
+
+    componentWillMount() {
+        this.getData()
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.getData()
     }
 
     render() {
