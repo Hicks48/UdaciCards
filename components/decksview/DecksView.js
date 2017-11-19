@@ -16,9 +16,9 @@ class DecksView extends React.Component {
     }
 
     getData = () => {
-      API.getDecks()
-        .then((decks) => Object.keys(decks).map((key) => (decks[key])))
-        .then((decks) => this.setState({ decks }))
+      API.createDeckStorage().then(() => (API.getDecks()
+      .then((decks) => Object.keys(decks).map((key) => (decks[key])))
+      .then((decks) => this.setState({ decks }))))
     }
 
     componentWillMount() {

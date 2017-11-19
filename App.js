@@ -6,13 +6,7 @@ import UdaciCardsNavigator from './components/common/UdaciCardsNavigator'
 
 import { setLocalNotification } from './components/common/UdaciCardsNotifications'
 
-import * as API from './utils/api'
-
 class App extends React.Component {
-
-  componentWillMount() {
-    API.createDeckStorage()
-  }
 
   componentDidMount() {
     setLocalNotification()

@@ -11,6 +11,10 @@ export function createDeckStorage() {
                 ))
 }
 
+export function clearLocalStorage() {
+  return AsyncStorage.removeItem(DECK_STORAGE_KEY)
+}
+
 export function getDecks() {
     return AsyncStorage.getItem(DECK_STORAGE_KEY)
                 .then((decks) => JSON.parse(decks))
