@@ -9,6 +9,10 @@ import * as API from '../../utils/api'
 
 class AddCardView extends React.Component {
 
+    static navigationOptions = {
+        title: 'Add Card'
+    }
+
     constructor(props) {
         super(props)
 

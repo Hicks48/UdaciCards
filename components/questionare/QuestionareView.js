@@ -8,6 +8,10 @@ import * as API from '../../utils/api'
 
 class QuestionareView extends React.Component {
 
+    static navigationOptions = {
+        title: 'Quiz'
+    }
+
     constructor(props) {
         super(props)
 

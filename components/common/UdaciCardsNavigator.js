@@ -33,18 +33,28 @@ const Tabs = TabNavigator({
     }
 })
 
+const stackNavigationOptions = {
+    headerTintColor: '#fff',
+    headerStyle: {
+        backgroundColor: '#000'
+    }
+}
+
 const UdaciCardsNavigator = StackNavigator({
     Home: {
         screen: Tabs
     },
     DeckView: {
-        screen: DeckView
+        screen: DeckView,
+        navigationOptions: stackNavigationOptions
     },
     AddCardView: {
-        screen: AddCardView
+        screen: AddCardView,
+        navigationOptions: stackNavigationOptions
     },
     QuestionareView: {
-        screen: QuestionareView
+        screen: QuestionareView,
+        navigationOptions: stackNavigationOptions
     }
 })
 

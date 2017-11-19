@@ -8,6 +8,10 @@ import * as API from '../../utils/api'
 
 class DeckView extends React.Component {
 
+    static navigationOptions = ({ navigation, screenProps }) => ({
+        title: navigation.state.params.deckTitle
+    })
+
     constructor(props) {
         super(props)
 
