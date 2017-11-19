@@ -1,6 +1,9 @@
 # UdaciCards
 A Project for Udacity React Nanodegree Program.
 
+## Running and installing project
+The project can installed by running npm install. The project can be started by running npm start. After starting the project if android emulator is running press a -key to start application on the emulator. It is possible to use the App on the phone by scanning QR-code from the console using Expo App which is available at the Google Play Store.
+
 ## Decribtion
 In the App user can create Decks which contain cards. Each card contains a question and an answer. User can train with cards by selecting a deck from the decks view and then pressing start quiz. In the Quiz a user is presented with a Question and then user can click show answer button to check answer and inform the app whether user knew the answer or not. In the end of the quiz user sees how many of the cards he or she got correct. User also has ability to add new cards to decks.
 
