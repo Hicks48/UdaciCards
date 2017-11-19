@@ -9,6 +9,35 @@ NOTE: The App displays a notfication on the phone every day at 19:00 if user has
 ## Platforms
 This project has been tested on Android phone and Android emulator. Project has not been tested on IOS platform.
 
+## Data
+The app has default data which is in the App by default. The data in AsyncStorage is also in the same format:
+```json
+{
+    "React": {
+      "title": "React",
+      "questions": [
+        {
+          "question": "What is React?",
+          "answer": "A library for managing user interfaces"
+        },
+        {
+          "question": "Where do you make Ajax requests in React?",
+          "answer": "The componentDidMount lifecycle event"
+        }
+      ]
+    },
+    "JavaScript": {
+      "title": "JavaScript",
+      "questions": [
+        {
+          "question": "What is a closure?",
+          "answer": "The combination of a function and the lexical environment within which that function was declared."
+        }
+      ]
+    }
+  }
+```
+
 ## Development notes
 * The program has been implemented with react-native.
 * The utils folder contains api file which is responssible for handling App's data in AsyncStorage.
