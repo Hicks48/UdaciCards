@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
 import QuestionView from './QuestionView'
 import CompletedView from './CompletedView'
@@ -59,7 +59,7 @@ class QuestionareView extends React.Component {
         const questions = deck.questions
 
         return (
-            <View>
+            <View style={styles.container}>
                 { questionsAnswered === questions.length ?
                     <CompletedView
                         questionsCorrect={questionsCorrect}
@@ -76,5 +76,14 @@ class QuestionareView extends React.Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff'
+    }
+})
 
 export default QuestionareView

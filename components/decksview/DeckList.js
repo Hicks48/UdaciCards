@@ -13,7 +13,7 @@ class DeckList extends React.Component {
         const { decks } = this.props
 
         return (
-            <View style={styles.deckList}>
+            <View style={styles.list}>
                 <FlatList
                     data={decks}
                     renderItem={this.renderItem}
@@ -25,12 +25,9 @@ class DeckList extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    deckList: {
+    list: {
       flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      alignSelf: 'stretch',
-      justifyContent: 'center'
+      backgroundColor: '#fff'
     }
 })
 

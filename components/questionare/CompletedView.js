@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
 class CompletedView extends React.Component {
 
@@ -7,11 +7,24 @@ class CompletedView extends React.Component {
         const { questionsCorrect, questionsTotal } = this.props
 
         return (
-            <View>
-                <Text>{`You got ${questionsCorrect/questionsTotal*100}% of questions correct.`}</Text>
+            <View style={styles.container}>
+                <Text style={styles.message}>
+                    {`You got ${questionsCorrect/questionsTotal*100}% of questions correct.`}
+                </Text>
             </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    message: {
+        fontSize: 24
+    }
+})
 
 export default CompletedView

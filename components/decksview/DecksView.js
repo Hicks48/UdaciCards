@@ -9,7 +9,7 @@ class DecksView extends React.Component {
       const { navigation } = this.props
 
       return (
-          <View style={styles.decksView}>
+          <View style={styles.container}>
             <DeckList 
               decks={this.getDecks()} 
               onItemPress={() => navigation.navigate('DeckView')}
@@ -49,11 +49,10 @@ class DecksView extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  decksView: {
+  container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    alignSelf: 'stretch',
+    alignItems: 'stretch',
     justifyContent: 'center'
   }
 })

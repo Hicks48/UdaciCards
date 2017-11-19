@@ -7,9 +7,9 @@ class DeckListItem extends React.Component {
         const {title, questions, onItemPress} = this.props
 
         return (
-            <View style={styles.deckListItem}>
+            <View style={styles.listItem}>
                 <TouchableOpacity onPress={onItemPress}>
-                    <Text style={styles.deckListItemTitle}>{title}</Text>
+                    <Text style={styles.title}>{title}</Text>
                     <Text>{`${questions.length} cards`}</Text>
                 </TouchableOpacity>
             </View>
@@ -18,20 +18,19 @@ class DeckListItem extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    deckListItem: {
+    listItem: {
       flex: 1,
-      backgroundColor: '#fff',
       alignItems: 'center',
-      alignSelf: 'stretch',
       justifyContent: 'center',
 
       padding: 20,
       margin: 5,
 
+      backgroundColor: '#fff',
       borderBottomWidth: 1.0,
       borderBottomColor: '#d6d7da'
     },
-    deckListItemTitle: {
+    title: {
         fontWeight: 'bold',
         fontSize: 18,
         color: '#000'
