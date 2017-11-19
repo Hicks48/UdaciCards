@@ -19,6 +19,18 @@ const Tabs = TabNavigator({
             tabBarLabel: 'Add Deck'
         }
     }
+},
+{
+    navigationOptions: {
+        header: null
+    },
+    tabBarOptions: {
+        activeTintColor: '#000',
+        inactiveTintColor: '#000',
+        style: {
+            backgroundColor: '#fff'
+        }
+    }
 })
 
 const UdaciCardsNavigator = StackNavigator({

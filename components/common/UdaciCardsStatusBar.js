@@ -6,7 +6,7 @@ class UdaciStatusBar extends React.Component {
 
     render() {
         return (
-            <View style={{ backgroundColor: '#f39c12' , height: Constants.statusBarHeight }}>
+            <View style={{ backgroundColor: '#f39c12', height: Constants.statusBarHeight }}>
                 <StatusBar translucent backgroundColor={'#f39c12'} barStyle={'light-content'}/>
             </View>
         )
