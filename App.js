@@ -4,6 +4,8 @@ import { StyleSheet, Text, View } from 'react-native'
 import UdaciCardsStatusBar from './components/common/UdaciCardsStatusBar'
 import UdaciCardsNavigator from './components/common/UdaciCardsNavigator'
 
+import { setLocalNotification } from './components/common/UdaciCardsNotifications'
+
 import * as API from './utils/api'
 
 class App extends React.Component {
@@ -18,6 +20,10 @@ class App extends React.Component {
 
   componentWillMount() {
     API.createDeckStorage().then((decks) => this.setState({ isStorageReady: true }))
+  }
+
+  componentDidMount() {
+    setLocalNotification()
   }
 
   render() {

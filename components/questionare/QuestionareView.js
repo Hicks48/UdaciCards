@@ -5,6 +5,8 @@ import { NavigationActions } from 'react-navigation'
 import QuestionView from './QuestionView'
 import CompletedView from './CompletedView'
 
+import { setLocalNotification, clearNotifications } from '../common/UdaciCardsNotifications'
+
 import * as API from '../../utils/api'
 
 class QuestionareView extends React.Component {
@@ -34,6 +36,7 @@ class QuestionareView extends React.Component {
     }
 
     onAnswerCorrect = () => {
+        this.clearNotificationsIfQuizCompleted()
         this.setState((state) => (
             {
                 questionsCorrect: state.questionsCorrect + 1,
@@ -44,6 +47,7 @@ class QuestionareView extends React.Component {
     }
 
     onAnswerIncorrect = () => {
+        this.clearNotificationsIfQuizCompleted()
         this.setState((state) => (
             {
                 questionsCorrect: state.questionsCorrect,
@@ -51,6 +55,15 @@ class QuestionareView extends React.Component {
                 currentQuestion: state.currentQuestion + 1
             }
         ))
+    }
+
+    clearNotificationsIfQuizCompleted = () => {
+        const { deck, questionsAnswered } = this.state
+        const { questions } = deck
+
+        if (questionsAnswered === questions.length) {
+            clearNotifications().then(() => setLocalNotification())
+        }
     }
 
     onRestartQuiz = () =>{
