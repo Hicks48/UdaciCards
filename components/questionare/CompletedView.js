@@ -1,10 +1,12 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+
+import ButtonStyles from '../styles/ButtonStyles'
 
 class CompletedView extends React.Component {
 
     render() {
-        const { questionsCorrect, questionsTotal } = this.props
+        const { questionsCorrect, questionsTotal, onRestartQuiz, onBackToDeck } = this.props
 
         return (
             <View style={styles.container}>
@@ -15,6 +17,14 @@ class CompletedView extends React.Component {
                         `You got ${questionsCorrect/questionsTotal*100}% of questions correct.`
                     }
                 </Text>
+
+                <TouchableOpacity style={ButtonStyles.buttonLigth} onPress={onRestartQuiz}>
+                    <Text style={ButtonStyles.buttonLigthText}>Restart Quiz</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={ButtonStyles.buttonDark} onPress={onBackToDeck}>
+                    <Text style={ButtonStyles.buttonDarkText}>Back to Deck</Text>
+                </TouchableOpacity>
             </View>
         )
     }

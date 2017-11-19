@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import { NavigationActions } from 'react-navigation'
 
 import QuestionView from './QuestionView'
 import CompletedView from './CompletedView'
@@ -52,6 +53,28 @@ class QuestionareView extends React.Component {
         ))
     }
 
+    onRestartQuiz = () =>{
+        this.setState((state) => ({
+            ...state,
+            questionsCorrect: 0,
+            questionsAnswered: 0,
+            currentQuestion: 0
+        }))
+    }
+
+    onBackToDeck = () => {
+        const { navigation } = this.props
+        const { deckTitle } = this.props.navigation.state.params
+
+        navigation.dispatch(NavigationActions.reset({
+            index: 1,
+            actions: [
+                NavigationActions.navigate({ routeName: 'Home'}),
+                NavigationActions.navigate({ routeName: 'DeckView', params: { deckTitle }})
+            ]
+        }))
+    }
+
     render() {
         const { deck, questionsAnswered, questionsCorrect, currentQuestion } = this.state
         const questions = deck.questions
@@ -62,6 +85,8 @@ class QuestionareView extends React.Component {
                     <CompletedView
                         questionsCorrect={questionsCorrect}
                         questionsTotal={questions.length}
+                        onRestartQuiz={this.onRestartQuiz}
+                        onBackToDeck={this.onBackToDeck}
                     /> :
                     <QuestionView 
                         questions={questions}

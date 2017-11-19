@@ -27,7 +27,7 @@ class AddDeckView extends React.Component {
                     onChangeText={(text) => this.setState({ deckName: text })}
                 />
                 <TouchableOpacity style={ButtonStyles.buttonDark} onPress={this.submitNewDeck}>
-                    <Text style={ButtonStyles.buttonDarkText}>Submit</Text>
+                    <Text style={ButtonStyles.buttonDarkText}>Create Deck</Text>
                 </TouchableOpacity>
             </View>
         )
