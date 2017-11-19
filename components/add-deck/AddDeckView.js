@@ -22,6 +22,7 @@ class AddDeckView extends React.Component {
                 <Text style={styles.title}>What is the title of your new deck?</Text>
                 <TextInput 
                     style={FieldStyles.textInputField}
+                    placeholder={'Deck Title'}
                     value={this.state.deckName}
                     onChangeText={(text) => this.setState({ deckName: text })}
                 />

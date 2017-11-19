@@ -31,12 +31,14 @@ class AddCardView extends React.Component {
             <View style={styles.container}>
                 <TextInput 
                     style={FieldStyles.textInputField}
+                    placeholder={'Question'}
                     value={this.state.question}
                     onChangeText={(text) => this.setState((state) => ({ ...state, question: text }))}
                 />
                 
                 <TextInput 
                     style={FieldStyles.textInputField}
+                    placeholder={'Answer'}
                     value={this.state.answer}
                     onChangeText={(text) => this.setState((state) => ({ ...state, answer: text }))}
                 />
