@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import { KeyboardAvoidingView, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 
 import FieldStyles from '../styles/FieldStyles' 
@@ -48,7 +48,7 @@ class AddCardView extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <KeyboardAvoidingView behavior='padding' style={styles.container}>
                 <TextInput 
                     style={FieldStyles.textInputField}
                     placeholder={'Question'}
@@ -66,7 +66,7 @@ class AddCardView extends React.Component {
                 <TouchableOpacity style={ButtonStyles.buttonDark} onPress={this.onSubmit}>
                     <Text style={ButtonStyles.buttonDarkText}>Submit</Text>
                 </TouchableOpacity>
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }

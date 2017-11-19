@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import { KeyboardAvoidingView, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 
 import FieldStyles from '../styles/FieldStyles'
 import ButtonStyles from '../styles/ButtonStyles'
@@ -18,7 +18,7 @@ class AddDeckView extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <KeyboardAvoidingView behavior='padding' style={styles.container}>
                 <Text style={styles.title}>What is the title of your new deck?</Text>
                 <TextInput 
                     style={FieldStyles.textInputField}
@@ -29,7 +29,7 @@ class AddDeckView extends React.Component {
                 <TouchableOpacity style={ButtonStyles.buttonDark} onPress={this.submitNewDeck}>
                     <Text style={ButtonStyles.buttonDarkText}>Create Deck</Text>
                 </TouchableOpacity>
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 

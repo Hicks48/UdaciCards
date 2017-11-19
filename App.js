@@ -9,17 +9,9 @@ import { setLocalNotification } from './components/common/UdaciCardsNotification
 import * as API from './utils/api'
 
 class App extends React.Component {
-  
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      isStorageReady: false
-    }
-  }
 
   componentWillMount() {
-    API.createDeckStorage().then((decks) => this.setState({ isStorageReady: true }))
+    API.createDeckStorage()
   }
 
   componentDidMount() {
@@ -27,8 +19,6 @@ class App extends React.Component {
   }
 
   render() {
-    const { isStorageReady } = this.state
-
     return (
       <View style={styles.container}>
         <UdaciCardsStatusBar/>
